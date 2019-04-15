@@ -14,3 +14,8 @@ class ToscrapeXpathSpider(scrapy.Spider):
                 author=quote.xpath('.//small[@class="author"]/text()').extract_first(),
                 tags=quote.xpath('./div[@class="tags"]/a[@class="tag"]/text()').extract(),
             )
+
+        next_page_url = response.xpath('//li[@class="next"]/a/@href').extract_first()
+        if next_page_url is not None:
+            next_full_url = response.urljoin(next_page_url)
+            yield scrapy.Request(next_full_url, callback=self.parse)
