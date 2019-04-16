@@ -8,7 +8,14 @@
 import scrapy
 
 
-class CrawlprojectItem(scrapy.Item):
+class ToscrapeXpathItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    quote = scrapy.Field()
+    author = scrapy.Field()
+    tags = scrapy.Field()
+
+    author_born_date = scrapy.Field()
+    author_born_location = scrapy.Field()
+    author_description = scrapy.Field()
+    author_full_url = scrapy.Field()
+
