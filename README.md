@@ -1,4 +1,4 @@
-
+## 纯文字静态网站爬取  
 #### Lesson1 单页爬取
 - scrapy startproject crawlproject
 - scrapy genspider -t basic toscrape-xpath quotes.toscrape.com
@@ -10,3 +10,5 @@
 #### Lesson6 存储mongodb
 - scrapy crawl toscrape-xpath
 
+## 图片静态网站爬取
+#### Lesson7 反爬之请求头限制
