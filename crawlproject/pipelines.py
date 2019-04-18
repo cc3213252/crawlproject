@@ -7,6 +7,7 @@
 
 import json
 import codecs
+from crawlproject.misc.store import quotesbotDB
 
 
 class JsonWriterPipeline(object):
@@ -21,3 +22,11 @@ class JsonWriterPipeline(object):
 
     def close_spider(self, spider):
         self.file.close()
+
+
+class ToscrapeXpathPipeline(object):
+    def process_item(self, item, spider):
+        if spider.name == "toscrape-xpath":
+            if item.get("quote", None) is None: return item
+            spec = { "quote": item["quote"] }
+            quotesbotDB.quotedb.update(spec, {'$set': dict(item)}, upsert=True)
