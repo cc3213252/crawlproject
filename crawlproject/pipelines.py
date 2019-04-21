@@ -8,6 +8,10 @@
 import json
 import codecs
 from crawlproject.misc.store import quotesbotDB
+from scrapy import Request
+from scrapy.pipelines.images import ImagesPipeline
+from scrapy.exceptions import DropItem
+import re
 
 
 class JsonWriterPipeline(object):
@@ -30,3 +34,34 @@ class ToscrapeXpathPipeline(object):
             if item.get("quote", None) is None: return item
             spec = { "quote": item["quote"] }
             quotesbotDB.quotedb.update(spec, {'$set': dict(item)}, upsert=True)
+
+
+class ZolPipeline(ImagesPipeline):
+    def file_path(self, request, response=None, info=None):
+        item = request.meta['item']
+        print('item:', item)
+        folder = item['title']
+        folder_strip = strip(folder)
+        image_guid = request.url.split('/')[-1]
+        filename = u'{0}/{1}'.format(folder_strip, image_guid)
+        print('file:', filename)
+        return filename
+
+    def get_media_requests(self, item, info):
+        print('3333:', item)
+        for img_url in item['img_urls']:
+            yield Request(img_url, meta={'item': item})
+
+    def item_completed(self, results, item, info):
+        image_paths = [x['path'] for ok, x in results if ok]
+        if not image_paths:
+            raise DropItem("Item contains no images")
+        return item
+
+
+def strip(path):
+    """
+    :param path: 需要清洗的文件夹名字
+    """
+    path = re.sub(r'[？\\*|“<>:/]', '', str(path))
+    return path

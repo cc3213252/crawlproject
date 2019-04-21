@@ -19,3 +19,7 @@ class ToscrapeXpathItem(scrapy.Item):
     author_description = scrapy.Field()
     author_full_url = scrapy.Field()
 
+
+class ZolItem(scrapy.Item):
+    title = scrapy.Field()
+    img_urls = scrapy.Field()
