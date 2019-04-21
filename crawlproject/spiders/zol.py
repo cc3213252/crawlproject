@@ -1,19 +1,18 @@
 # -*- coding: utf-8 -*-
-from scrapy.spiders import CrawlSpider, Rule
-from scrapy.linkextractors import LinkExtractor
+import scrapy
 
 
-class ZolSpider(CrawlSpider):
+class ZolSpider(scrapy.Spider):
     name = 'zol'
-    allowed_domains = ['sj.zol.com.cn/bizhi']
-    start_urls = ['http://sj.zol.com.cn/bizhi']
+    allowed_domains = ['sj.zol.com.cn']
+    start_urls = ['http://sj.zol.com.cn/bizhi/750x1334/']
     img_urls = []
-    rules = (
-        Rule(LinkExtractor(allow=('/detail_8737_97214.html',)), callback='parse_item', follow=True),
-    )
 
-    def parse_item(self, response):
-        title = response.xpath('//h1/a/text()').extract_first()
-        img_url = response.xpath('//img[@id="bigImg"]/@src').extract_first()
-        print(title)
-        print(img_url)
+    def parse(self, response):
+        photos = response.xpath('//li[@class="photo-list-padding"]')
+        for photo in photos:
+            album_url = photo.xpath('./a/@href').get()
+            title = photo.xpath('./a/@title').get()
+            album_full_url = response.urljoin(album_url)
+            self.logger.info(title)
+            self.logger.info(album_full_url)
