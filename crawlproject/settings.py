@@ -19,7 +19,7 @@ NEWSPIDER_MODULE = 'crawlproject.spiders'
 #USER_AGENT = 'crawlproject (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -90,5 +90,5 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-IMAGES_STORE = '/Users/chenyudan/Desktop/zol/'
+IMAGES_STORE = '/Users/apple/Desktop/zol/'
 IMAGES_EXPIRES = 30
