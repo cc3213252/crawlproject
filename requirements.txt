@@ -2,4 +2,3 @@ scrapy
 pymongo
 Pillow
 scrapy_splash
-demjson
