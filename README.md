@@ -7,8 +7,8 @@
 #### Lesson3 多页爬取2
 #### Lesson4 item使用
 #### Lesson5 pipline使用
-#### Lesson6 存储mongodb
+#### Lesson7 存储mongodb
 - scrapy crawl toscrape-xpath
 
 ## 图片静态网站爬取
-#### Lesson7 反爬之请求头限制
+#### Lesson8 反爬之请求头限制

@@ -40,9 +40,8 @@ ROBOTSTXT_OBEY = True
 
 # Override the default request headers:
 DEFAULT_REQUEST_HEADERS = {
-    "X-Requested-With": "XMLHttpRequest",
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36",
+ #   "X-Requested-With": "XMLHttpRequest",
+    "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Mobile Safari/537.36",
 }
 
 # Enable or disable spider middlewares
