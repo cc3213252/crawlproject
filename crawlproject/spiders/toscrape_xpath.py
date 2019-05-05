@@ -4,7 +4,7 @@ from crawlproject.items import ToscrapeXpathItem
 
 
 class ToscrapeXpathSpider(scrapy.Spider):
-    name = 'toscrape-xpath'
+    name = 'toscrape_xpath'
     allowed_domains = ['quotes.toscrape.com']
     start_urls = ['http://quotes.toscrape.com/']
 
