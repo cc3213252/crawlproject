@@ -70,7 +70,7 @@ def strip(path):
 class FengniaoPipeline(ImagesPipeline):
     def file_path(self, request, response=None, info=None):
         item = request.meta['item']
-        filename = item['title']
+        filename = '{}.jpg'.format(item['title'])
         return filename
 
     def get_media_requests(self, item, info):

@@ -93,3 +93,6 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 IMAGES_STORE = '/Users/chenyudan/Desktop/fengniao/'
 IMAGES_EXPIRES = 30
+
+DOWNLOAD_DELAY = 0.25
+RANDOMIZE_DOWNLOAD_DELAY = True

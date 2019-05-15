@@ -11,7 +11,7 @@ class FengniaoSpider(CrawlSpider):
     start_urls = ['http://photo.fengniao.com/']
 
     rules = (
-        Rule(LinkExtractor(allow=r'https://photo.fengniao.com/pic_\d{1,8}.html'), callback='parse_item', follow=True),
+        Rule(LinkExtractor(allow=r'https://photo.fengniao.com/pic_4349\d{1,4}.html'), callback='parse_item', follow=True),
     )
 
     def parse_item(self, response):
