@@ -65,3 +65,19 @@ def strip(path):
     """
     path = re.sub(r'[？\\*|“<>:/]', '', str(path))
     return path
+
+
+class FengniaoPipeline(ImagesPipeline):
+    def file_path(self, request, response=None, info=None):
+        item = request.meta['item']
+        filename = item['title']
+        return filename
+
+    def get_media_requests(self, item, info):
+        yield Request(item['img_url'], meta={'item': item})
+
+    def item_completed(self, results, item, info):
+        image_paths = [x['path'] for ok, x in results if ok]
+        if not image_paths:
+            raise DropItem("Item contains no images")
+        return item

@@ -23,3 +23,8 @@ class ToscrapeXpathItem(scrapy.Item):
 class ZolItem(scrapy.Item):
     title = scrapy.Field()
     img_urls = scrapy.Field()
+
+
+class FengniaoItem(scrapy.Item):
+    title = scrapy.Field()
+    img_url = scrapy.Field()

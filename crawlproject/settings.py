@@ -67,7 +67,8 @@ DEFAULT_REQUEST_HEADERS = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
 #   'crawlproject.pipelines.ToscrapeXpathPipeline': 300,
-   'crawlproject.pipelines.ZolPipeline': 301,
+ #  'crawlproject.pipelines.ZolPipeline': 301,
+    'crawlproject.pipelines.FengniaoPipeline': 302,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -90,5 +91,5 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-IMAGES_STORE = '/Users/chenyudan/Desktop/zol/'
+IMAGES_STORE = '/Users/chenyudan/Desktop/fengniao/'
 IMAGES_EXPIRES = 30
