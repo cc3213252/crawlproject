@@ -10,5 +10,10 @@
 #### Lesson7 存储mongodb
 - scrapy crawl toscrape-xpath
 
-## 图片静态网站爬取
 #### Lesson8 反爬之请求头限制
+
+
+## 测试爬虫
+
+- 修改setting中IMAGES_STORE目录
+- 修改setting中ITEM_PIPELINES

@@ -51,6 +51,10 @@ class MongoPipeline(object):
     def process_item(self, item, spider):
         self.db[spider.name].insert(dict(item))
         return item
+        # if spider.name == "toscrape-xpath":
+        #     if item.get("quote", None) is None: return item
+        #     spec = { "quote": item["quote"] }
+        #     quotesbotDB.quotedb.update(spec, {'$set': dict(item)}, upsert=True)
 
 
 class ZolPipeline(ImagesPipeline):

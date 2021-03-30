@@ -1,4 +1,4 @@
-scrapy
+scrapy==2.4.1
 pymongo
 Pillow
 scrapy_splash
