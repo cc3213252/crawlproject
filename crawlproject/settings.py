@@ -68,8 +68,9 @@ DOWNLOADER_MIDDLEWARES = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
 #   'crawlproject.pipelines.ToscrapeXpathPipeline': 300,
-#   'crawlproject.pipelines.ZolPipeline': 301,
    'crawlproject.pipelines.MongoPipeline': 300,
+ #  'crawlproject.pipelines.ZolPipeline': 301,
+    'crawlproject.pipelines.FengniaoPipeline': 302,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -92,8 +93,10 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-IMAGES_STORE = '/Users/apple/Desktop/zol/'
+IMAGES_STORE = '/Users/cyd/Desktop/study/crawl/zol/'
 IMAGES_EXPIRES = 30
 MONGO_URI = 'localhost:27017'
 MONGO_DATABASE = 'crawlproject'
 
+DOWNLOAD_DELAY = 0.25
+RANDOMIZE_DOWNLOAD_DELAY = True
