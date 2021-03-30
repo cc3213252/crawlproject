@@ -67,7 +67,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-  'crawlproject.pipelines.ToscrapeXpathPipeline': 300,
+  # 'crawlproject.pipelines.ToscrapeXpathPipeline': 300,
 #    'crawlproject.pipelines.MongoPipeline': 300,
  #  'crawlproject.pipelines.ZolPipeline': 301,
  #    'crawlproject.pipelines.FengniaoPipeline': 302,

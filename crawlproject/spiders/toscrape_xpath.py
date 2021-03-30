@@ -8,7 +8,7 @@ class ToscrapeXpathSpider(scrapy.Spider):
     allowed_domains = ['quotes.toscrape.com']
     start_urls = ['http://quotes.toscrape.com/']
 
-    def parse(self, response):
+    def parse(self, response, **kwargs):
         for quote in response.xpath('//div[@class="quote"]'):
             item = ToscrapeXpathItem()
             item['quote'] = quote.xpath('./span[@class="text"]/text()').extract_first()

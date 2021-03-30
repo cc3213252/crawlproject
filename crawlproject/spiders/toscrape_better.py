@@ -8,17 +8,19 @@ class ToscrapeBetterSpider(scrapy.Spider):
     allowed_domains = ['quotes.toscrape.com']
     start_urls = ['http://quotes.toscrape.com/']
 
-    def parse(self, response):
+    def parse(self, response, **kwargs):
         for quote in response.xpath('//div[@class="quote"]')[:1]:
             item = ToscrapeXpathItem()
             item['quote'] = quote.xpath('./span[@class="text"]/text()').get()
             item['author'] = quote.xpath('.//small[@class="author"]/text()').get()
             item['tags'] = quote.xpath('./div[@class="tags"]/a[@class="tag"]/text()').getall()
-            for author_page in quote.xpath('./span[2]/a'):
-                yield response.follow(author_page, meta={'item': item}, callback=self.parse_author, dont_filter=True)
+            author_page = quote.xpath('./span[2]/a')
+            yield from response.follow_all(author_page,
+                                           meta={'item': item},
+                                           callback=self.parse_author,
+                                           dont_filter=True)
 
-        for next_page in response.xpath('//li[@class="next"]/a'):
-            yield response.follow(next_page, callback=self.parse)
+        yield from response.follow_all(xpath='//li[@class="next"]/a', callback=self.parse)
 
     def parse_author(self, response):
         item = response.meta['item']
